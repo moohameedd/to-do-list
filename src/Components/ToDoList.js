@@ -1,13 +1,12 @@
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ToDo from "./ToDo";
 
 
 
@@ -40,11 +39,11 @@ export default function SimpleContainer() {
             </ToggleButton>
             
             </ToggleButtonGroup>
+            {/* to do component */}
+            <ToDo/>
         
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      
     </Card>
     
     </Container>
