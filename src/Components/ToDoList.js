@@ -7,6 +7,10 @@ import Divider from '@mui/material/Divider';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ToDo from "./ToDo";
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 
 
@@ -41,7 +45,18 @@ export default function SimpleContainer() {
             </ToggleButtonGroup>
             {/* to do component */}
             <ToDo/>
-        
+            
+          {/* input + add button*/}
+          <Grid container style={{marginTop:"20px"}}spacing={2}>
+            <Grid size={8} style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
+                  <TextField style={{width:"100%"}} id="outlined-basic" label="title" variant="outlined" />
+                        
+            </Grid>
+            <Grid size={4} style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
+                      <Button variant="contained" style={{width:"100%",height:"100%"}}>Add</Button>
+            </Grid>
+
+          </Grid>
       </CardContent>
       
     </Card>

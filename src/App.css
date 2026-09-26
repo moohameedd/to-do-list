@@ -52,3 +52,15 @@
   padding-top: 20px;
   box-shadow: Opx 7px 7px rgba(0,0,0,0.4);
 }
+
+/* font */
+
+@font-face {
+  font-family: roboto;
+  src: url("/public/fonts/RobotoCondensed-Light.ttf");
+  font-weight: 900;
+  
+}
+body{
+  font-family: roboro;
+}
