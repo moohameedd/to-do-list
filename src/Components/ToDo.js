@@ -13,7 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
-export default function ToDo(){
+export default function ToDo({titile,details}){
     return (
     <>
 
@@ -22,10 +22,10 @@ export default function ToDo(){
                 <Grid container spacing={2}>
                     <Grid size={8}>
                         <Typography variant='h6' sx={{textAlign:"left"}} >
-                            Task
+                            {titile}
                         </Typography>
                         <Typography variant='h5' sx={{textAlign:"left"}} >
-                            Details
+                            {details}
                         </Typography>
                     </Grid>
                     {/* icons */}

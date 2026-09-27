@@ -10,11 +10,25 @@ import ToDo from "./ToDo";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {v4 as uuidv4} from 'uuid';
 
 
 
 
-export default function SimpleContainer() {
+const todos = [
+  {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
+  {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
+  {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
+
+]
+
+
+
+
+export default function ToDoList() {
+  const todosJsx = todos.map((t)=>{
+    return <ToDo key={t.id} titile={t.title} details={t.details}/>;
+  })
   return (
     
     <Container maxWidth="sm">
@@ -44,7 +58,7 @@ export default function SimpleContainer() {
             
             </ToggleButtonGroup>
             {/* to do component */}
-            <ToDo/>
+            {todosJsx}
             
           {/* input + add button*/}
           <Grid container style={{marginTop:"20px"}}spacing={2}>
