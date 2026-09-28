@@ -12,10 +12,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {v4 as uuidv4} from 'uuid';
 
+import { useState } from 'react';
 
 
 
-const todos = [
+
+
+const initalTodos = [
   {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
   {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
   {id:uuidv4,title:"read a book",details:"3 pages",isCompleted:false},
@@ -26,9 +29,22 @@ const todos = [
 
 
 export default function ToDoList() {
+  const [todos,setTodos] = useState(initalTodos);
+  const [titleInput,setTitleInput] = useState("");
   const todosJsx = todos.map((t)=>{
     return <ToDo key={t.id} titile={t.title} details={t.details}/>;
   })
+
+  function handleAddClick(){
+    const newTodo = {
+      id:uuidv4(),
+      title:titleInput,
+      details:"",
+      isCompleted:false
+    }
+    setTodos([...initalTodos,newTodo]);
+    setTitleInput("");
+  }
   return (
     
     <Container maxWidth="sm">
@@ -63,11 +79,15 @@ export default function ToDoList() {
           {/* input + add button*/}
           <Grid container style={{marginTop:"20px"}}spacing={2}>
             <Grid size={8} style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
-                  <TextField style={{width:"100%"}} id="outlined-basic" label="title" variant="outlined" />
+                  <TextField style={{width:"100%"}} id="outlined-basic" label="title" variant="outlined" value={titleInput} onChange={(e)=>{
+                    setTitleInput(e.target.value);
+                  }} />
                         
             </Grid>
             <Grid size={4} style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
-                      <Button variant="contained" style={{width:"100%",height:"100%"}}>Add</Button>
+                      <Button variant="contained" style={{width:"100%",height:"100%"}} onClick={()=>{
+                        handleAddClick()
+                      }}>Add</Button>
             </Grid>
 
           </Grid>
